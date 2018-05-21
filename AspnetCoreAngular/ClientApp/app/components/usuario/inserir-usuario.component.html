@@ -1,1 +1,64 @@
 ﻿
+<form [formGroup]="usuarioForm" novalidate>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row" *ngIf="erros">
+                <div class="alert alert-danger" role="alert">
+                    <ul *ngFor="let item of erros">
+                        <li>{{item.errorMessage}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Tipo</label>
+                        <select formControlName="tipoPessoa" class="form-control">
+                            <option value="1" selected>Juridica</option>
+                            <option value="2">Fisica</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputNome">Nome</label>
+                        <input type="text"
+                               formControlName="nome"
+                               class="form-control"
+                               placeholder="Nome" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputSobrenome">Sobre Nome</label>
+                        <input type="text"
+                               formControlName="sobreNome"
+                               class="form-control"
+                               placeholder="Segundo Nome" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Email</label>
+                        <input type="email"
+                               formControlName="emailAdress"
+                               class="form-control"
+                               placeholder="Email">
+                        <span class="help-block">
+                            <i class="btn-default fa"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <endereco [enderecoGroup]=usuarioForm></endereco>
+
+            <button type="submit"
+                    class="btn btn-default"
+                    (click)="InsereUsuario(usuarioForm.value)">
+                Enviar
+            </button>
+        </div>
+    </div>
+</form>

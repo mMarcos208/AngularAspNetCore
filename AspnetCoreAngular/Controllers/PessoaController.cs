@@ -33,13 +33,9 @@ namespace AspnetCoreAngular.Controllers
                 Endereco endereco = _repositoryEndereco.Details(int.Parse(pessoa.endereco.cep));
 
                 if (endereco == null)
-                {
                     enderecoId = _repositoryEndereco.Create(pessoa.endereco);
-                }
                 else
-                {
                     enderecoId = endereco.id;
-                }
 
                 pessoaId = _repositoryPessoa.Create(pessoa);
                 _repositoryPessoa.PessoaEndereco(pessoaId, enderecoId);

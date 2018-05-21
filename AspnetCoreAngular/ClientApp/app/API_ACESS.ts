@@ -1,0 +1,1 @@
+﻿export const API_Pessoa = 'http://localhost:59982/api';

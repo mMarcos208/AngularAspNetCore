@@ -13,7 +13,7 @@ namespace Validation
 
       RuleFor(x => x.emailAdress)
         .EmailAddress()
-        .WithMessage("Email inválidos");
+        .WithMessage("Email inválido");
 
       RuleFor(x => x.nome)
         .NotEmpty()

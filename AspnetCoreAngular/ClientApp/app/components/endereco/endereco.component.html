@@ -1,0 +1,54 @@
+﻿<div class="row">
+    <div class="col-md-2">
+        <div class="form-group" [formGroup]="enderecoGroup">
+            <label for="exampleInputCep">Cep</label>
+            <input type="text"
+                   formControlName="cep"
+                   class="form-control"
+                   placeholder="Cep"
+                   (blur)="GetEndereco($event.target.value)">
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="form-group" [formGroup]="enderecoGroup">
+            <label for="exampleInputRua">Logradouro</label>
+            <input type="text"
+                   formControlName="logradouro"
+                   class="form-control"
+                   placeholder="Logradouro"
+                   [value]="endereco?.logradouro" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group" [formGroup]="enderecoGroup">
+            <label for="exampleInputBairro">Bairro</label>
+            <input type="text"
+                   formControlName="bairro"
+                   class="form-control"
+                   placeholder="Bairro"
+                   [value]="endereco?.bairro" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group" [formGroup]="enderecoGroup">
+            <label for="exampleInputCidade">Cidade</label>
+            <input type="text"
+                   formControlName="cidade"
+                   class="form-control"
+                   placeholder="Cidade"
+                   [value]="endereco?.cidade" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group" [formGroup]="enderecoGroup">
+            <label for="exampleInputComplemento">Complemento</label>
+            <input type="text"
+                   formControlName="complemento"
+                   class="form-control"
+                   placeholder="Complemento"
+                   [value]="endereco?.complemento">
+        </div>
+    </div>
+</div>
