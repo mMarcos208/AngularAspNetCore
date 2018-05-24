@@ -1,0 +1,68 @@
+﻿
+<form [formGroup]="usuarioForm" novalidate>
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>Inserir pessoa</h4>
+                <div class="container-fluid">
+                    <div class="alert alert-danger" role="alert" *ngIf="erros">
+                        <ul *ngFor="let item of erros">
+                            <li>{{item.errorMessage}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Tipo</label>
+                        <select formControlName="tipoPessoa" class="form-control">
+                            <option value="1" selected>Juridica</option>
+                            <option value="2">Fisica</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputNome">Nome</label>
+                        <input type="text"
+                               formControlName="nome"
+                               class="form-control "
+                               placeholder="Nome" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputSobrenome">Sobre Nome</label>
+                        <input type="text"
+                               formControlName="sobreNome"
+                               class="form-control"
+                               placeholder="Segundo Nome"
+                               [value]="pessoa?.sobreNome" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Email</label>
+                        <input type="email"
+                               formControlName="emailAdress"
+                               class="form-control is-invalid"
+                               placeholder="Email"
+                               [value]="pessoa?.emailAdress">
+                        <span class="help-block">
+                            <i class="btn-default fa"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <endereco [enderecoGroup]=usuarioForm></endereco>
+
+    <button type="submit"
+            class="btn btn-primary"
+            (click)="EditarPessoa(usuarioForm.value)">
+        <!--[disabled]="!usuarioForm.valid"-->
+        Enviar
+    </button>
+
+
+</form>

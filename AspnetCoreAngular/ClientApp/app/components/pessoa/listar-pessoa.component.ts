@@ -1,11 +1,11 @@
 ﻿import { Component } from '@angular/core';
-import { ServicoUsuario } from './dao/app.service';
+import { ServicoPessoa } from './dao/app.service';
 import { Pessoa } from './pessoa.model';
 
 
 @Component({
-    selector: 'listar-usuario',
-    templateUrl: './listar-usuario.html'
+    selector: 'listar-pessoa',
+    templateUrl: './listar-pessoa.html'
 })
 
 export class ListarPessoaComponent {
@@ -13,7 +13,7 @@ export class ListarPessoaComponent {
     pessoa: Pessoa[];
 
     constructor(
-        private servico: ServicoUsuario) { }
+        private servico: ServicoPessoa) { }
 
     ngOnInit() {
         this.ListarUsuario();
@@ -26,10 +26,5 @@ export class ListarPessoaComponent {
     DeletarPessoa(Id: string) {
         this.servico.DeletarPessoa(Id)
             .subscribe(resposta => this.pessoa = resposta);
-    }
-
-    EditarPessoa(Id: string) {
-        this.servico.DetalharPessoa(Id)
-            .subscribe(resposta => console.log(response));
     }
 }

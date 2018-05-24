@@ -24,13 +24,15 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\API_ACESS.ts" />
+    <None Remove="ClientApp\app\app.router.ts" />
     <None Remove="ClientApp\app\components\endereco\dao\app.service.endereco.ts" />
     <None Remove="ClientApp\app\components\endereco\endereco.component.ts" />
     <None Remove="ClientApp\app\components\endereco\endereco.model.ts" />
-    <None Remove="ClientApp\app\components\usuario\dao\app.service.ts" />
-    <None Remove="ClientApp\app\components\usuario\inserir-usuario.component.ts" />
-    <None Remove="ClientApp\app\components\usuario\listar-usuario.component.ts" />
-    <None Remove="ClientApp\app\components\usuario\pessoa.model.ts" />
+    <None Remove="ClientApp\app\components\pessoa\dao\app.service.ts" />
+    <None Remove="ClientApp\app\components\pessoa\editar-pessoa.component.ts" />
+    <None Remove="ClientApp\app\components\pessoa\inserir-pessoa.component.ts" />
+    <None Remove="ClientApp\app\components\pessoa\listar-pessoa.component.ts" />
+    <None Remove="ClientApp\app\components\pessoa\pessoa.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,13 +42,15 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\API_ACESS.ts" />
+    <TypeScriptCompile Include="ClientApp\app\app.router.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\endereco\dao\app.service.endereco.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\endereco\endereco.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\endereco\endereco.model.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\usuario\dao\app.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\usuario\inserir-usuario.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\usuario\listar-usuario.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\usuario\pessoa.model.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\pessoa\dao\app.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\pessoa\editar-pessoa.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\pessoa\inserir-pessoa.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\pessoa\listar-pessoa.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\pessoa\pessoa.model.ts" />
   </ItemGroup>
 
   <ItemGroup>

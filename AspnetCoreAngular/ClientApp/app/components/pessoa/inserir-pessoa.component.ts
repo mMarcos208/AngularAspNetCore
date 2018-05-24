@@ -1,23 +1,22 @@
 ﻿import { Component, ContentChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControlName } from '@angular/forms';
-import { ServicoUsuario } from './dao/app.service';
+import { ServicoPessoa } from './dao/app.service';
 import { Pessoa } from './pessoa.model';
 
 
 @Component({
-    selector: 'inserir-usuario',
-    templateUrl: './inserir-usuario.component.html'
+    selector: 'inserir-pessoa',
+    templateUrl: './inserir-pessoa.html'
 })
 
-export class InserirUsuarioComponent {
+export class InserirPessoaComponent {
     usuarioForm: FormGroup;
     erros: any;
     cepPattern = /\d\d((\d\d\d)| (\.\d\d\d -)) \d\d\d/
     input: any;
-    control: FormControlName;
 
     constructor(
-        private servico: ServicoUsuario,
+        private servico: ServicoPessoa,
         private formBuilder: FormBuilder) { }
 
     ngOnInit() {
@@ -34,21 +33,10 @@ export class InserirUsuarioComponent {
         });
     }
 
-    ngAfterContentInit() {
-        this.input = this.control;
-    }
-
     InsereUsuario(pessoa: Pessoa) {
         this.servico.InserirPessoa(pessoa)
             .subscribe(resposta => this.erros = resposta.errors);
         console.log(this.erros);
     }
-  //  hasSucess(input: any): boolean {
-  //      return !this.usuarioForm.get(input).valid && this.usuarioForm.get(input).touched;// input.valid && (this.input.dirty || this.input.touched);
-  //  }
-
-  //  hasErro(): boolean {
-  //  return !this.input.valid && (this.input.dirty || this.input.touched);
-  //}
 
 }

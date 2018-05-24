@@ -9,11 +9,13 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { InserirUsuarioComponent } from './components/usuario/inserir-usuario.component';
-import { ListarPessoaComponent } from   './components/usuario/listar-usuario.component';
+import { InserirPessoaComponent } from './components/pessoa/inserir-pessoa.component';
+import { ListarPessoaComponent } from   './components/pessoa/listar-pessoa.component';
 import { EnderecoComponent } from './components/endereco/endereco.component';
-import { ServicoUsuario } from './components/usuario/dao/app.service';
+import { ServicoPessoa } from './components/pessoa/dao/app.service';
 import { ServicoEndereco } from './components/endereco/dao/app.service.endereco';
+import { ROUTES } from './app.router';
+import { EditarPessoaComponent } from './components/pessoa/editar-pessoa.component';
 
 @NgModule({
     declarations: [
@@ -22,8 +24,9 @@ import { ServicoEndereco } from './components/endereco/dao/app.service.endereco'
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        InserirUsuarioComponent,
+        InserirPessoaComponent,
         ListarPessoaComponent,
+        EditarPessoaComponent,
         EnderecoComponent
     ],
     imports: [
@@ -31,17 +34,9 @@ import { ServicoEndereco } from './components/endereco/dao/app.service.endereco'
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'inserir-usuario', component: InserirUsuarioComponent },
-            { path: 'listar-usuario', component: ListarPessoaComponent },
-            { path: '**', redirectTo: 'home' }
-        ])
+        RouterModule.forRoot(ROUTES)
     ],
-    providers: [ServicoUsuario, ServicoEndereco]
+    providers: [ServicoPessoa, ServicoEndereco]
 })
 export class AppModuleShared {
 }

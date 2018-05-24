@@ -14,7 +14,7 @@
             <td>{{item.email}}</td>
             <td>
                 <button (click)="DeletarPessoa(item.id)" class="btn btn-primary">Excluir</button>
-                <button (click)="EditarPessoa(item.id)" class="btn btn-primary">Editar</button>
+                <button [routerLink]="['/editar-pessoa', item.id]" class="btn btn-primary">Editar</button>
             </td>
         </tr>
     </tbody>
