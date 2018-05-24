@@ -7,6 +7,9 @@ using Repository.EnderecoRepository;
 using Repository.PessoaRepository;
 using System.Text.RegularExpressions;
 using Validation;
+using ViewModel.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AspnetCoreAngular.Controllers
 {
@@ -43,5 +46,41 @@ namespace AspnetCoreAngular.Controllers
             }
             return erros;
         }
+
+        [HttpGet]
+        public IEnumerable<PessoaListarViewModel> Pessoas()
+        {
+            IEnumerable<Pessoa> pessoas = _repositoryPessoa.List();
+
+            var viewModel = Mapper.Map<List<Pessoa>, List<PessoaListarViewModel>>(pessoas.ToList());
+
+            return viewModel;
+        }
+
+        [HttpGet("{id}", Name = "Get")]
+        public Pessoa Get(int id)
+        {
+            return _repositoryPessoa.Details(id);
+        }
+
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]Pessoa value)
+        {
+            _repositoryPessoa.Update(value);
+        }
+
+        [HttpDelete("{id}")]
+        public IEnumerable<PessoaListarViewModel> Delete(int id)
+        {
+            _repositoryPessoa.Delete(id);
+
+            IEnumerable<Pessoa> pessoas = _repositoryPessoa.List();
+
+            var viewModel = Mapper.Map<List<Pessoa>, List<PessoaListarViewModel>>(pessoas.ToList());
+
+            return viewModel;
+
+        }
+
     }
 }

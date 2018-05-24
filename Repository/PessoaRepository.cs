@@ -41,8 +41,12 @@ namespace Repository.PessoaRepository
       using (var conexao = new SqlConnection(strConexao))
       {
         var QUERY = @"DELETE
+                        FROM PessoaEndereco
+                       WHERE IdPessoa = @id;
+
+                      DELETE
                         FROM Pessoa
-                       WHERE Id = @id";
+                       WHERE Id = @id;";
 
         conexao.Execute(QUERY, new
         {

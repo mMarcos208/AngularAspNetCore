@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { InserirUsuarioComponent } from './components/usuario/inserir-usuario.component';
+import { ListarPessoaComponent } from   './components/usuario/listar-usuario.component';
 import { EnderecoComponent } from './components/endereco/endereco.component';
 import { ServicoUsuario } from './components/usuario/dao/app.service';
 import { ServicoEndereco } from './components/endereco/dao/app.service.endereco';
@@ -22,6 +23,7 @@ import { ServicoEndereco } from './components/endereco/dao/app.service.endereco'
         FetchDataComponent,
         HomeComponent,
         InserirUsuarioComponent,
+        ListarPessoaComponent,
         EnderecoComponent
     ],
     imports: [
@@ -35,6 +37,7 @@ import { ServicoEndereco } from './components/endereco/dao/app.service.endereco'
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'inserir-usuario', component: InserirUsuarioComponent },
+            { path: 'listar-usuario', component: ListarPessoaComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],

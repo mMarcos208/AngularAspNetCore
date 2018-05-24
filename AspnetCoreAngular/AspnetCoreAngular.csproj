@@ -29,6 +29,7 @@
     <None Remove="ClientApp\app\components\endereco\endereco.model.ts" />
     <None Remove="ClientApp\app\components\usuario\dao\app.service.ts" />
     <None Remove="ClientApp\app\components\usuario\inserir-usuario.component.ts" />
+    <None Remove="ClientApp\app\components\usuario\listar-usuario.component.ts" />
     <None Remove="ClientApp\app\components\usuario\pessoa.model.ts" />
   </ItemGroup>
 
@@ -44,6 +45,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\endereco\endereco.model.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\usuario\dao\app.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\usuario\inserir-usuario.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\usuario\listar-usuario.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\usuario\pessoa.model.ts" />
   </ItemGroup>
 
