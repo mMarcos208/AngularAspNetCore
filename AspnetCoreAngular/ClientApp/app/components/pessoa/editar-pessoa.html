@@ -1,16 +1,9 @@
 ﻿
 <form [formGroup]="usuarioForm" novalidate>
     <div class="container-fluid">
+        <h3>Editar Pessoa</h3>
         <div class="panel panel-default">
             <div class="panel-body">
-                <h4>Inserir pessoa</h4>
-                <div class="container-fluid">
-                    <div class="alert alert-danger" role="alert" *ngIf="erros">
-                        <ul *ngFor="let item of erros">
-                            <li>{{item.errorMessage}}</li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Tipo</label>
@@ -26,7 +19,8 @@
                         <input type="text"
                                formControlName="nome"
                                class="form-control "
-                               placeholder="Nome" />
+                               placeholder="Nome"
+                               [value]=pessoa?.nome/>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -36,7 +30,7 @@
                                formControlName="sobreNome"
                                class="form-control"
                                placeholder="Segundo Nome"
-                               [value]="pessoa?.sobreNome" />
+                               [value]=pessoa?.sobreNome />
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -55,14 +49,17 @@
             </div>
         </div>
     </div>
-    <endereco [enderecoGroup]=usuarioForm></endereco>
-
-    <button type="submit"
-            class="btn btn-primary"
-            (click)="EditarPessoa(usuarioForm.value)">
-        <!--[disabled]="!usuarioForm.valid"-->
-        Enviar
-    </button>
-
-
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <endereco [enderecoGroup]=usuarioForm [endereco]=pessoa?.endereco></endereco>
+            </div>
+        </div>
+        <button type="submit"
+                class="btn btn-primary"
+                (click)="EditarPessoa(usuarioForm.value)"
+                [disabled]=!usuarioForm.valid>
+            Enviar
+        </button>
+    </div>
 </form>

@@ -100,16 +100,26 @@ namespace Repository.PessoaRepository
         {
             using (var conexao = new SqlConnection(strConexao))
             {
-                var QUERY = @"SELECT Id, Nome, SobreNome, Email as EmailAdress
-                      FROM Pessoa
-                     WHERE Id = @id";
+                var QUERY = @"SELECT P.Id, P.Nome, P.SobreNome, P.Email as EmailAdress, P.IdTipoPessoa,
+                                     E.Bairro, E.Cep, E.Cidade, E.Complemento, E.Id, E.Rua as Logradouro
+                                FROM Pessoa P
+                          INNER JOIN PessoaEndereco PE on P.Id = PE.IdPessoa
+                          INNER JOIN Endereco E on PE.IdEndereco = E.Id
+                               WHERE P.Id = @id";
 
-                return conexao.Query<Pessoa>(QUERY, new
+                return conexao.Query<Pessoa, Endereco, Pessoa>(QUERY,
+                (Pessoa, Endereco) =>
+                {
+                    Pessoa.endereco = Endereco;
+                    return Pessoa;
+                },
+                new
                 {
                     id = id
-                }).Single();
+                },
+                splitOn: "Bairro"
+                ).Single();
             }
-
         }
 
         public void PessoaEndereco(int pessoaId, int enderecoId)

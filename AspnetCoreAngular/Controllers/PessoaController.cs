@@ -64,7 +64,7 @@ namespace AspnetCoreAngular.Controllers
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Pessoa value)
+        public void Put([FromBody]Pessoa value)
         {
             _repositoryPessoa.Update(value);
         }

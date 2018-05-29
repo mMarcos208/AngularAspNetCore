@@ -34,7 +34,7 @@ export class EditarPessoaComponent {
             cidade: '',
             complemento: ''
         });
-        
+
     }
     EditarPessoa(pessoa: Pessoa) {
         this.servico.EditarPessoa(pessoa)

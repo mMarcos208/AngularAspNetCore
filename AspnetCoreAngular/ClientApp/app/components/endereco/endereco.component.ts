@@ -12,7 +12,7 @@ export class EnderecoComponent implements OnInit {
 
     @Input() enderecoGroup: FormGroup;
 
-    endereco: Endereco
+    @Input() endereco: Endereco
 
     constructor(
         private servico: ServicoEndereco,
