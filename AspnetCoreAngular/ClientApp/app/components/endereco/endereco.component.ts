@@ -19,11 +19,22 @@ export class EnderecoComponent implements OnInit {
         private formBuilder: FormBuilder) { }
 
     ngOnInit() {
+        this.enderecoGroup.patchValue({
+            bairro: this.endereco.bairro,
+            logradouro: this.endereco.logradouro,
+            cidade: this.endereco.localidade
+        });
     }
 
     GetEndereco(Cep: string) {
         this.servico.GetEndereco(Cep)
-            .subscribe(resposta => this.endereco = resposta);
+            .subscribe(resposta => {
+                this.enderecoGroup.patchValue({
+                    bairro: resposta.bairro,
+                    logradouro: resposta.logradouro,
+                    cidade: resposta.localidade
+                });
+            });
     }
 
 }

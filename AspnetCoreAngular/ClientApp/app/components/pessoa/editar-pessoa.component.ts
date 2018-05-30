@@ -21,7 +21,15 @@ export class EditarPessoaComponent {
 
     ngOnInit() {
         this.servico.DetalharPessoa(this.route.snapshot.params['id'])
-            .subscribe(resposta => this.pessoa = resposta);
+            .subscribe(resposta => {
+                this.usuarioForm.patchValue({
+                    nome: resposta.nome,
+                    sobreNome: resposta.sobreNome,
+                    tipoPessoa: resposta.tipoPessoa,
+                    emailAdress: resposta.emailAdress
+                })
+                this.pessoa = resposta
+            });
 
         this.usuarioForm = this.formBuilder.group({
             nome: this.formBuilder.control('', [Validators.required]),

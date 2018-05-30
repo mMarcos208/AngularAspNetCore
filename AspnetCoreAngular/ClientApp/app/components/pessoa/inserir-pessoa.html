@@ -1,5 +1,4 @@
-﻿
-<form [formGroup]="usuarioForm" novalidate>
+﻿<form [formGroup]="usuarioForm" novalidate>
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
@@ -20,16 +19,21 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group"
+                         [class.has-error]=" usuarioForm.get('nome').invalid && (usuarioForm.get('nome').dirty || usuarioForm.get('nome').touched)"
+                         [class.has-success]="usuarioForm.get('nome').valid && (usuarioForm.get('nome').dirty || usuarioForm.get('nome').touched)">
                         <label for="exampleInputNome">Nome</label>
                         <input type="text"
                                formControlName="nome"
                                class="form-control "
-                               placeholder="Nome" />
+                               placeholder="Nome" 
+                               />
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group"
+                         [class.has-error]=" usuarioForm.get('sobreNome').invalid && (usuarioForm.get('sobreNome').dirty || usuarioForm.get('sobreNome').touched)"
+                         [class.has-success]="usuarioForm.get('sobreNome').valid && (usuarioForm.get('sobreNome').dirty || usuarioForm.get('sobreNome').touched)">
                         <label for="exampleInputSobrenome">Sobre Nome</label>
                         <input type="text"
                                formControlName="sobreNome"
@@ -38,7 +42,9 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group"
+                         [class.has-error]=" usuarioForm.get('emailAdress').invalid && (usuarioForm.get('emailAdress').dirty || usuarioForm.get('emailAdress').touched)"
+                         [class.has-success]="usuarioForm.get('emailAdress').valid && (usuarioForm.get('emailAdress').dirty || usuarioForm.get('emailAdress').touched)">
                         <label for="exampleInputEmail">Email</label>
                         <input type="email"
                                formControlName="emailAdress"
@@ -55,8 +61,8 @@
 
             <button type="submit"
                     class="btn btn-default"
-                    (click)="InsereUsuario(usuarioForm.value)">
-                <!--[disabled]="!usuarioForm.valid"-->
+                   (click)="InsereUsuario(usuarioForm.value)"
+                   [disabled]="!usuarioForm.valid">
                 Enviar
             </button>
         </div>
