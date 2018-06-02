@@ -15,7 +15,7 @@ namespace Parser
                 .ForMember(d => d.emailAdress, o => o.MapFrom(s => s.emailAdress))
                 .ForPath(d => d.endereco.bairro, o => o.MapFrom(s => s.bairro))
                 .ForPath(d => d.endereco.cep, o => o.MapFrom(s => s.cep))
-                .ForPath(d => d.endereco.cidade, o => o.MapFrom(s => s.cidade))
+                .ForPath(d => d.endereco.cidade, o => o.MapFrom(s => s.localidade))
                 .ForPath(d => d.endereco.logradouro, o => o.MapFrom(s => s.logradouro))
                 .ForPath(d => d.endereco.complemento, o => o.MapFrom(s => s.complemento))
                 .ForMember(d => d.nome, o => o.MapFrom(s => s.nome))

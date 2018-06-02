@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
@@ -16,6 +16,7 @@ import { ServicoPessoa } from './components/pessoa/dao/app.service';
 import { ServicoEndereco } from './components/endereco/dao/app.service.endereco';
 import { ROUTES } from './app.router';
 import { EditarPessoaComponent } from './components/pessoa/editar-pessoa.component';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
     declarations: [
@@ -27,11 +28,12 @@ import { EditarPessoaComponent } from './components/pessoa/editar-pessoa.compone
         InserirPessoaComponent,
         ListarPessoaComponent,
         EditarPessoaComponent,
-        EnderecoComponent
+        EnderecoComponent,
+        InputComponent
     ],
     imports: [
         CommonModule,
-        HttpModule,
+        HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot(ROUTES)

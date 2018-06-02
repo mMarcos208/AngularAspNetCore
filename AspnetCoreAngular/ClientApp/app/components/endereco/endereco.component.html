@@ -1,43 +1,39 @@
 ﻿<h3>Endereço</h3>
 <div class="row">
-    <div class="col-md-2">
-        <div class="form-group" [formGroup]="enderecoGroup">
-            <label for="exampleInputCep">Cep</label>
+    <div class="col-md-2" [formGroup]="enderecoGroup">
+        <input-container label="Cep" errorMensage="Campo obrigátorio">
             <input type="text"
                    formControlName="cep"
                    class="form-control"
                    placeholder="Cep"
                    (blur)="GetEndereco($event.target.value)">
-        </div>
+        </input-container>
     </div>
-    <div class="col-md-10">
-        <div class="form-group" [formGroup]="enderecoGroup">
-            <label for="exampleInputRua">Logradouro</label>
+    <div class="col-md-10" [formGroup]="enderecoGroup">
+        <input-container label="Rua" errorMensage="Campo obrigátorio">
             <input type="text"
                    formControlName="logradouro"
                    class="form-control"
                    placeholder="Logradouro" />
-        </div>
+        </input-container>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4">
-        <div class="form-group" [formGroup]="enderecoGroup">
-            <label for="exampleInputBairro">Bairro</label>
+    <div class="col-md-4" [formGroup]="enderecoGroup">
+        <input-container label="Bairro" errorMensage="Campo obrigátorio">
             <input type="text"
                    formControlName="bairro"
                    class="form-control"
                    placeholder="Bairro" />
-        </div>
+        </input-container>
     </div>
-    <div class="col-md-4">
-        <div class="form-group" [formGroup]="enderecoGroup">
-            <label for="exampleInputCidade">Cidade</label>
+    <div class="col-md-4" [formGroup]="enderecoGroup">
+        <input-container label="Cidade" errorMensage="Campo obrigátorio">
             <input type="text"
-                   formControlName="cidade"
+                   formControlName="localidade"
                    class="form-control"
                    placeholder="Cidade" />
-        </div>
+        </input-container>
     </div>
     <div class="col-md-4">
         <div class="form-group" [formGroup]="enderecoGroup">

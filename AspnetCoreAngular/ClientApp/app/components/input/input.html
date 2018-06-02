@@ -1,0 +1,13 @@
+﻿<div class="form-group"
+     [class.has-error]="hasErro()"
+     [class.has-success]="hasSucess()">
+    <label for="exampleInputBairro">{{label}}</label>
+    <ng-content></ng-content>
+
+    <span class="help-block" *ngIf="hasErro()">
+        <i class="fa fa-remove"></i>{{errorMensage}}
+    </span>
+    <span class="help-block" *ngIf="hasSucess()">
+        <i class="fa fa-check"></i> Ok
+    </span>
+</div>

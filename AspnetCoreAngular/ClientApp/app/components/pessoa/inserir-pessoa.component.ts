@@ -1,4 +1,4 @@
-﻿import { Component, ContentChild } from '@angular/core';
+﻿import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControlName } from '@angular/forms';
 import { ServicoPessoa } from './dao/app.service';
 import { Pessoa } from './pessoa.model';
@@ -12,8 +12,7 @@ import { Pessoa } from './pessoa.model';
 export class InserirPessoaComponent {
     usuarioForm: FormGroup;
     erros: any;
-    cepPattern = /\d\d((\d\d\d)| (\.\d\d\d -)) \d\d\d/
-    input: any;
+    cepPattern = /(\d{8}|\d{3}-\d{5})/
 
     constructor(
         private servico: ServicoPessoa,
@@ -21,14 +20,14 @@ export class InserirPessoaComponent {
 
     ngOnInit() {
         this.usuarioForm = this.formBuilder.group({
-            nome: this.formBuilder.control('', [Validators.required]),
+            nome: this.formBuilder.control('', [Validators.required, Validators.minLength(3)]),
             sobreNome: this.formBuilder.control('', [Validators.required]),
             emailAdress: this.formBuilder.control('', [Validators.required, Validators.email]),
             tipoPessoa: this.formBuilder.control('1', [Validators.required]),
-            cep: this.formBuilder.control('', [Validators.pattern(this.cepPattern)]),
-            logradouro: '',
-            bairro: '',
-            cidade: '',
+            cep: this.formBuilder.control('', [[Validators.pattern(this.cepPattern)],Validators.minLength(8), Validators.maxLength(9)]),
+            logradouro: this.formBuilder.control('', [Validators.required]),
+            bairro: this.formBuilder.control('', [Validators.required]),
+            localidade: this.formBuilder.control('', [Validators.required]),
             complemento: ''
         });
     }
@@ -36,7 +35,6 @@ export class InserirPessoaComponent {
     InsereUsuario(pessoa: Pessoa) {
         this.servico.InserirPessoa(pessoa)
             .subscribe(resposta => this.erros = resposta.errors);
-        console.log(this.erros);
     }
 
 }
