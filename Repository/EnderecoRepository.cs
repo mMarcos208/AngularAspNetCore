@@ -30,7 +30,7 @@ namespace Repository.EnderecoRepository
                     cep = endereco.cep,
                     logradouro = endereco.logradouro,
                     bairro = endereco.bairro,
-                    cidade = endereco.cidade,
+                    cidade = endereco.localidade,
                     complemento = endereco.complemento
                 }).Single();
             }
@@ -46,21 +46,36 @@ namespace Repository.EnderecoRepository
             throw new System.NotImplementedException();
         }
 
-        public void Update(Endereco t)
+        public void Update(Endereco endereco)
         {
-            throw new System.NotImplementedException();
+            using (var conexao = new SqlConnection(strConexao))
+            {
+                var QUERY = @"UPDATE
+                                     Endereco
+                                 SET Cep = @cep, Rua = @logradouro, Bairro = @bairro, Cidade = @cidade
+                               WHERE Cep = @cep";
+
+                conexao.Execute(QUERY, new
+                {
+                    cep = endereco.cep,
+                    logradouro = endereco.logradouro,
+                    bairro = endereco.bairro,
+                    cidade = endereco.localidade
+                });
+
+            }
         }
 
         public Endereco Details(int cep)
         {
             var QUERY = @"SELECT Id, Cep, Rua as logradouro, Bairro, Cidade, Complemento
-                      FROM Endereco
-                     WHERE Cep = @cep";
+                            FROM Endereco
+                           WHERE Cep = @cep";
 
             using (var conexao = new SqlConnection(strConexao))
             {
                 return conexao.QuerySingle<Endereco>(QUERY, new { @cep = cep });
-            }
+            } 
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Validation
             .MaximumLength(500)
             .WithMessage("Logradouro deve ter no máximo 8 caracteres");
 
-            RuleFor(x => x.endereco.cidade)
+            RuleFor(x => x.endereco.localidade)
             .NotEmpty()
             .WithMessage("Cidade é obrigátorio")
             .MaximumLength(200)

@@ -1,9 +1,8 @@
-﻿<p>Form value: {{ usuarioForm.value | json }}</p>
-<form [formGroup]="usuarioForm" novalidate>
+﻿<form [formGroup]="usuarioForm" novalidate>
     <div class="container-fluid">
-        <h3>Editar Pessoa</h3>
         <div class="panel panel-default">
             <div class="panel-body">
+                <h3>Editar Pessoa</h3>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Tipo</label>
@@ -14,45 +13,37 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="exampleInputNome">Nome</label>
+                    <input-container errorMensage="Campo obrigátorio e mínimo de 3 caracteres" label="Nome">
                         <input type="text"
                                formControlName="nome"
                                class="form-control "
-                               placeholder="Nome"
-                               [value]=pessoa?.nome/>
-                    </div>
+                               placeholder="Nome" />
+                    </input-container>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="exampleInputSobrenome">Sobre Nome</label>
+                    <input-container errorMensage="Campo obrigátorio" label="Sobre Nome">
                         <input type="text"
                                formControlName="sobreNome"
                                class="form-control"
-                               placeholder="Segundo Nome"
-                               [value]=pessoa?.sobreNome />
-                    </div>
+                               placeholder="Segundo Nome" />
+                    </input-container>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="exampleInputEmail">Email</label>
+                    <input-container errorMensage="E-Mail inválido" label="E-Mail">
                         <input type="email"
                                formControlName="emailAdress"
-                               class="form-control is-invalid"
-                               placeholder="Email"
-                               [value]="pessoa?.emailAdress">
-                        <span class="help-block">
-                            <i class="btn-default fa"></i>
-                        </span>
-                    </div>
+                               class="form-control"
+                               placeholder="E-mail" />
+                    </input-container>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="container-fluid">
         <div class="panel panel-default">
             <div class="panel-body">
-                <endereco [enderecoGroup]=usuarioForm [endereco]=pessoa?.endereco></endereco>
+                <endereco [enderecoGroup]=usuarioForm></endereco>
             </div>
         </div>
         <button type="submit"

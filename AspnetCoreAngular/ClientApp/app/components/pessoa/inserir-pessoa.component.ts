@@ -24,7 +24,7 @@ export class InserirPessoaComponent {
             sobreNome: this.formBuilder.control('', [Validators.required]),
             emailAdress: this.formBuilder.control('', [Validators.required, Validators.email]),
             tipoPessoa: this.formBuilder.control('1', [Validators.required]),
-            cep: this.formBuilder.control('', [[Validators.pattern(this.cepPattern)],Validators.minLength(8), Validators.maxLength(9)]),
+            cep: this.formBuilder.control('', [Validators.pattern(this.cepPattern),Validators.minLength(8), Validators.maxLength(9)]),
             logradouro: this.formBuilder.control('', [Validators.required]),
             bairro: this.formBuilder.control('', [Validators.required]),
             localidade: this.formBuilder.control('', [Validators.required]),

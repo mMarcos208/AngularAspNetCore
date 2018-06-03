@@ -12,8 +12,8 @@ export class ServicoPessoa {
         return this._http.post<any>(`${API_Pessoa}/Pessoa`, pessoa);
     }
 
-    EditarPessoa(pessoa: Pessoa): Observable<any> {
-        return this._http.put<any>(`${API_Pessoa}/Pessoa`, pessoa);
+    EditarPessoa(Id: number, pessoa: Pessoa): Observable<any> {
+        return this._http.put<any>(`${API_Pessoa}/Pessoa/${Id}`, pessoa);
     }
 
     ListarPessoa(): Observable<Pessoa[]> {

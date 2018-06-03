@@ -82,7 +82,7 @@ namespace Repository.PessoaRepository
             using (var conexao = new SqlConnection(strConexao))
             {
                 var QUERY = @"UPDATE
-                             Pessoas
+                             Pessoa
                          SET Nome = @nome, Sobrenome = @sobrenome, Email = @email
                        WHERE Id = @id";
                 conexao.Execute(QUERY, new
@@ -100,8 +100,8 @@ namespace Repository.PessoaRepository
         {
             using (var conexao = new SqlConnection(strConexao))
             {
-                var QUERY = @"SELECT P.Id, P.Nome, P.SobreNome, P.Email as EmailAdress, P.IdTipoPessoa,
-                                     E.Bairro, E.Cep, E.Cidade, E.Complemento, E.Id, E.Rua as Logradouro
+                var QUERY = @"SELECT P.Id, P.Nome, P.SobreNome, P.Email as EmailAdress, P.IdTipoPessoa TipoPessoa,
+                                     E.Bairro, E.Cep, E.Cidade as Localidade, E.Complemento, E.Id, E.Rua as Logradouro
                                 FROM Pessoa P
                           INNER JOIN PessoaEndereco PE on P.Id = PE.IdPessoa
                           INNER JOIN Endereco E on PE.IdEndereco = E.Id

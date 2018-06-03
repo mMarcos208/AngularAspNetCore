@@ -4,10 +4,12 @@
     <label for="exampleInputBairro">{{label}}</label>
     <ng-content></ng-content>
 
-    <span class="help-block" *ngIf="hasErro()">
+    <span class="help-block" 
+          *ngIf="hasErro()">
         <i class="fa fa-remove"></i>{{errorMensage}}
     </span>
-    <span class="help-block" *ngIf="hasSucess()">
+    <span class="help-block" 
+          *ngIf="hasSucess()">
         <i class="fa fa-check"></i> Ok
     </span>
 </div>

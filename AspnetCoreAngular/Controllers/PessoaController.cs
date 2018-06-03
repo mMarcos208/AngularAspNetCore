@@ -58,19 +58,31 @@ namespace AspnetCoreAngular.Controllers
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public Pessoa Get(int id)
+        public Pessoa ListarPessoa(int id)
         {
             return _repositoryPessoa.Details(id);
         }
 
         [HttpPut("{id}")]
-        public void Put([FromBody]Pessoa value)
+        public void EditarPessoa(int id, [FromBody]PessoaInserirDto value)
         {
-            _repositoryPessoa.Update(value);
+            var cepPattern = @"[^0-9]"; //Conjunto negado, tudo que não é número
+            value.cep = Regex.Replace(value.cep, cepPattern, string.Empty);
+
+            Pessoa pessoa = Mapper.Map<PessoaInserirDto, Pessoa>(value);
+            pessoa.Id = id;
+            ValidationResult erros = new PessoaValidation().Validate(pessoa);
+
+            if (erros.Errors.Count == 0)
+            {
+
+                _repositoryEndereco.Update(pessoa.endereco);
+                _repositoryPessoa.Update(pessoa);
+            }
         }
 
         [HttpDelete("{id}")]
-        public IEnumerable<PessoaListarViewModel> Delete(int id)
+        public IEnumerable<PessoaListarViewModel> DeletarPessoa(int id)
         {
             _repositoryPessoa.Delete(id);
 

@@ -13,6 +13,7 @@ import { FormGroup, FormBuilder, Validators, FormControlName } from '@angular/fo
 export class EditarPessoaComponent {
     usuarioForm: FormGroup
     pessoa: Pessoa;
+    cepPattern = /(\d{8}|\d{3}-\d{5})/
 
     constructor(
         private servico: ServicoPessoa,
@@ -26,26 +27,34 @@ export class EditarPessoaComponent {
                     nome: resposta.nome,
                     sobreNome: resposta.sobreNome,
                     tipoPessoa: resposta.tipoPessoa,
-                    emailAdress: resposta.emailAdress
+                    emailAdress: resposta.emailAdress,
+                    cep: resposta.endereco.cep,
+                    logradouro: resposta.endereco.logradouro,
+                    bairro: resposta.endereco.bairro,
+                    localidade: resposta.endereco.localidade,
+                    complemento: resposta.endereco.complemento
                 })
-                this.pessoa = resposta
             });
 
         this.usuarioForm = this.formBuilder.group({
-            nome: this.formBuilder.control('', [Validators.required]),
+            id: '',
+            nome: this.formBuilder.control('', [Validators.required, Validators.minLength(3)]),
             sobreNome: this.formBuilder.control('', [Validators.required]),
             emailAdress: this.formBuilder.control('', [Validators.required, Validators.email]),
             tipoPessoa: this.formBuilder.control('', [Validators.required]),
-            cep: this.formBuilder.control(''),
-            logradouro: '',
-            bairro: '',
-            cidade: '',
+            cep: this.formBuilder.control('', [Validators.pattern(this.cepPattern), Validators.minLength(8), Validators.maxLength(9)]),
+            logradouro: this.formBuilder.control('', [Validators.required]),
+            bairro: this.formBuilder.control('', [Validators.required]),
+            localidade: this.formBuilder.control('', [Validators.required]),
             complemento: ''
         });
 
     }
     EditarPessoa(pessoa: Pessoa) {
-        this.servico.EditarPessoa(pessoa)
+        this.servico.EditarPessoa(this.route.snapshot.params['id'], pessoa)
             .subscribe(resposta => this.pessoa = resposta);
+
+        this.usuarioForm.reset();
+        //Adicionar redirecionar para o listar!
     }
 }

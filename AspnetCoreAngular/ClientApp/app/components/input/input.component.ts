@@ -17,7 +17,7 @@ export class InputComponent implements OnInit, AfterContentInit {
 
     constructor() { }
 
-    //Vai ser chamado quando o conteudo for definido!
+    //Vai ser chamado quando o conteudo de  @ContentChild for definido!
     ngAfterContentInit(): void {
         this.input = this.model;
         if (this.input === undefined)

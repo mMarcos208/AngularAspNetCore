@@ -6,7 +6,8 @@
                    formControlName="cep"
                    class="form-control"
                    placeholder="Cep"
-                   (blur)="GetEndereco($event.target.value)">
+                   (blur)="GetEndereco($event.target.value)"
+                   [value]="endereco?.cep">
         </input-container>
     </div>
     <div class="col-md-10" [formGroup]="enderecoGroup">
@@ -14,7 +15,7 @@
             <input type="text"
                    formControlName="logradouro"
                    class="form-control"
-                   placeholder="Logradouro" />
+                   placeholder="Logradouro"/>
         </input-container>
     </div>
 </div>
@@ -24,7 +25,7 @@
             <input type="text"
                    formControlName="bairro"
                    class="form-control"
-                   placeholder="Bairro" />
+                   placeholder="Bairro"/>
         </input-container>
     </div>
     <div class="col-md-4" [formGroup]="enderecoGroup">

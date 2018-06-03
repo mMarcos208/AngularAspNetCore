@@ -12,8 +12,6 @@ export class EnderecoComponent implements OnInit {
 
     @Input() enderecoGroup: FormGroup;
 
-    @Input() endereco: Endereco
-
     constructor(
         private servico: ServicoEndereco,
         private formBuilder: FormBuilder) { }
