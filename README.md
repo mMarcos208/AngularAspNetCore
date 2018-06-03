@@ -1,4 +1,4 @@
-# Projeto desenvolvimento em Angular 4 com Asp.Net Core Web Api
+# Projeto desenvolvimento em Angular 6 com Asp.Net Core Web Api
 
 # Tecnologias
 
@@ -12,7 +12,7 @@
 
 [Asp.Net Core 2.0](https://docs.microsoft.com/pt-br/aspnet/core/)
 
-[Angular 4](https://angular.io/)
+[Angular 4](https://angular.io/) - Atualizado dia 02/06/208 para a versão 6.
 
 
 Instalação do [Node](https://nodejs.org/en/download/)
