@@ -1,4 +1,9 @@
 # Projeto desenvolvimento em Angular 6 com Asp.Net Core Web Api
+-Projeto com a finalidade de aprimorar os conhecimentos adquiridos na plataforma Udemy.
+- Expressões regulares
+- Bootstrap 4.1
+- Git/GitHub
+- Angular 4+
 
 # Tecnologias
 
@@ -14,5 +19,4 @@
 
 [Angular 4](https://angular.io/) - Atualizado dia 02/06/208 para a versão 6.
 
-
-Instalação do [Node](https://nodejs.org/en/download/)
+[Node](https://nodejs.org/en/download/)
